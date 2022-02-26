@@ -16,6 +16,9 @@ function F = GIAIHS(M1,Pan, flag)
 % At the same time, the code is modified from the IAIHS framework in the following literature
 % Leung, Y.; Liu, J.M.; Zhang, J. An improved adaptive intensity hue saturation method for the fusion of remote sensing images.IEEE Geosci. Remote Sens. Lett.2013,11, 985–989
 %
+%
+%The sgl code is provided by the following documents:
+%Zhang, R. Research of Global Sparse Gradient Based Image Processing Methods. Ph.D. Dissertation, Xidian University, Xi’an,China, 2017
 %--------------------------------------------------------------------------
 if nargin<4
     flag = 1;
@@ -106,4 +109,18 @@ inv = (eye(d) + 2*tau*gamma1*A)^(-1);
 for i = 1:iter
     findalph = inv * (findalph+2*tau*max(-findalph,0)+2*tau*gamma1*b);
 end
+function [F]= edge(Pan, lamda,eps)
+[FX,FY] = gradient(Pan);
+u=((FX.*FX)+(FY.*FY)).^(1/2);
+%a = max(max(abs(u)))
+[m,n]=size(u);
+F= exp( -((lamda*(ones(m,n)))./((abs(u).*abs(u).*abs(u).*abs(u))+ eps)));
 
+function [F]= expGdge(Pan, lamda,eps)
+MMMM=5;iter=5;S=100;d=2;
+[xk,yk] = sgl( Pan,MMMM,iter,S,d)
+[ny,nx]=size(Pan);
+%a = max(max(abs(u)))
+ I=sqrt(xk.*xk+yk.*yk);
+ 
+F= exp( -((lamda*(ones(ny,nx)))./((abs(I).*abs(I).*abs(I).*abs(I))+ eps)));
