@@ -3,7 +3,7 @@
 % This is the implementation of the algorithm for two-stage PS fusion
 % 
 % Please refer to the following paper
-% 
+% Wang, Y.; Liu, G.; Zhang, R.; Liu, J. A Two-Stage Pansharpening Method for the Fusion of Remote-Sensing Images. Remote Sens. 2022, 14, 1121. https://doi.org/10.3390/rs14051121 
 
 
 clc; 
