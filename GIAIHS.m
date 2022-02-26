@@ -9,8 +9,13 @@ function F = GIAIHS(M1,Pan, flag)
 %Outputs:
 %  F: fused image.
 %--------------------------------------------------------------------------
-% Implementation by:
-% Dr. Wang Yazhen  <15548300646@163.com>
+% Implementation by:  Dr. Wang Yazhen  <15548300646@163.com>
+% Please refer to the following paper(GIAIHS)
+% Wang, Y.; Liu, G.; Zhang, R.; Liu, J. A Two-Stage Pansharpening Method for the Fusion of Remote-Sensing Images. Remote Sens. 2022, 14, 1121. https://doi.org/10.3390/rs14051121 
+%
+% At the same time, the code is modified from the IAIHS framework in the following literature
+% Leung, Y.; Liu, J.M.; Zhang, J. An improved adaptive intensity hue saturation method for the fusion of remote sensing images.IEEE Geosci. Remote Sens. Lett.2013,11, 985–989
+%
 %--------------------------------------------------------------------------
 if nargin<4
     flag = 1;
